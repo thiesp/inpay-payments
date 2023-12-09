@@ -8,7 +8,7 @@ module Facades
       def index
         payments = serialize_payments Payments::Payment.all.order(:id)
         customers = Customer::IndexFacade.new.with_ids(customer_ids: payments.map{|payment| payment[:customer_id]}.uniq)
-        payments.map{|payment| payment.merge(customers[payment[:customer_id]].except(:id))}
+        payments.map{|payment| payment.merge(customers[payment[:customer_id]].except(:id)).except(:customer_id)}
       end
 
       private
