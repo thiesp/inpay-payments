@@ -4,7 +4,7 @@ class CreatePaymentsPayments < ActiveRecord::Migration[7.1]
       t.bigint :customer_id
       t.decimal :amount, precision: 10, scale: 2
       t.string :currency
-      t.datetime :timetamp
+      t.datetime :timestamp
       
       t.timestamps
     end
